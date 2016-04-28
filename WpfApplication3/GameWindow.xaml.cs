@@ -3917,7 +3917,7 @@ namespace WpfApplication3
             setProperties();
 
             displayPlayerStats.Visibility = Visibility.Hidden;
-            
+            exitButton.Visibility = Visibility.Visible;
         }
     }
 
