@@ -152,8 +152,9 @@
                 <Label x:Name="player2StatsLosesLabel" Content="Loses:" FontSize="28" Foreground="White"/>
                 <Label x:Name="player2StatsHighestScoreLabel" Content="Highest Score:" FontSize="28" Foreground="White"/>
             </StackPanel>
-            <Label x:Name="backToMainMenuButton" Content="Back To Main Menu" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="highlightLabel" MouseLeave="unhighlightLabel" Grid.Row="2" VerticalAlignment="Center" Grid.Column="2" MouseLeftButtonDown="backToMainMenu"/>
-            <Label x:Name="displayGameBoardButton" Content="Display Game Board" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="highlightLabel" MouseLeave="unhighlightLabel" Grid.Row="2" VerticalAlignment="Center" MouseLeftButtonDown="displayGameBoardStats" Grid.Column="1"/>
+            <Label x:Name="backToMainMenuButton" Content="Back To Main Menu" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="highlightLabel" MouseLeave="unhighlightLabel" Grid.Row="2" VerticalAlignment="Center" Grid.Column="2" MouseLeftButtonDown="backToMainMenu" HorizontalAlignment="Right" Margin="0,19" Width="438" Grid.ColumnSpan="2"/>
+            <Label x:Name="displayGameBoardButton" Content="Display Game Board" FontSize="28" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="highlightLabel" MouseLeave="unhighlightLabel" Grid.Row="2" VerticalAlignment="Center" MouseLeftButtonDown="displayGameBoardStats" HorizontalAlignment="Left" Margin="0,19" Width="438" Grid.ColumnSpan="2"/>
+            <Label x:Name="playAgainButton" Content="Play Again?" FontSize="30" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseEnter="highlightLabel" MouseLeave="unhighlightLabel" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" MouseLeftButtonDown="playAgainButton_MouseLeftButtonDown" Width="316" Margin="283,0,277,19" FontWeight="Bold" />
         </Grid>
     </Grid>
 </Window>

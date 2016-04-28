@@ -25,19 +25,19 @@ namespace WpfApplication3
         private int difficulty;
         private string difficultyStr;
 
-        // true = player 1 or false = player 2
+        // playerOneTurn player 1 = True and player 2 = False
         //Player1 will be 'X' and player2 will be 'O'
         private bool playerOneTurn;
 
-        //if moveCounter = 36 game ends
+        //when moveCounter = 36 game ends
         private int moveCounter;
 
 
-        //Set all the options in the board
-        //list of buttons
+        
+        //list of buttons to check score
         Button[] buttons;
 
-        //Properties user for checking score and AI
+        //User Score board
         private bool[] ROWA;
         private bool[] ROWB;
         private bool[] ROWC;
@@ -59,7 +59,7 @@ namespace WpfApplication3
         private bool[] DI5;
         private bool[] DI6;
 
-        //This is used by the AI
+        //AI Scoreboard
         private bool[] AIROWA;
         private bool[] AIROWB;
         private bool[] AIROWC;
@@ -101,14 +101,14 @@ namespace WpfApplication3
             //Initilize components in the window
             InitializeComponent();
 
-            //change the text of player 1 label and player 2 to 'CPU'
+            //Change the Player label to respective names if computer then label is "CPU"
             player1Label.Content = player1.getUsername() + ":";
             player2Label.Content = player2.getUsername() + ":";
 
             selectPlayer1Label.Content = player1.getUsername();
             selectPlayer2Label.Content = player2.getUsername();
 
-            //set difficultyStr
+            //set difficultyStr for Top Label
             if (difficulty == 1)
             {
                 difficultyStr = "Easy";
@@ -122,12 +122,13 @@ namespace WpfApplication3
                 difficultyStr = "Hard";
             }
 
-            //Change label to 'Single Player: difficyltyStr
+            //Change the top label to Game Mode + Game Difficulty
             gameModeLabel.Content = "Single Player: " + difficultyStr;
 
             //change score label to 0
             score1Label.Content = player1.getScore();
             score2Label.Content = player2.getScore();
+
 
             //set move counter to 1
             moveCounter = 0;
@@ -147,14 +148,14 @@ namespace WpfApplication3
 
             InitializeComponent();
 
-            //change the text of player 1 label and player 2 label
+            //Change the Player label to respective names if computer then label is "CPU"
             player1Label.Content = player1.getUsername() + ":";
             player2Label.Content = player2.getUsername() + ":";
 
             selectPlayer1Label.Content = player1.getUsername();
             selectPlayer2Label.Content = player2.getUsername();
 
-            //Difficulty is multiplayer
+            //Difficulty set to multiplayer (No AI)
             difficultyStr = "Multiplayer";
 
             //Change label to 'Multilayer'
@@ -223,7 +224,7 @@ namespace WpfApplication3
 
         }
 
-        //this sets the array of buttons to be used
+        //Array for GameBoard buttons
         private void setButtonsArray()
         {
             buttons = new Button[36];
@@ -1891,6 +1892,7 @@ namespace WpfApplication3
 
                 if (difficulty == 1)
                 {
+
                     //Execute easy AI
                     easyAI();
 
@@ -3800,13 +3802,13 @@ namespace WpfApplication3
                     return D3;
             }
 
-            if (buttons[15].Content == "")
+            if (buttons[14].Content == "")
                 return C3;
-            if (buttons[16].Content == "")
+            if (buttons[15].Content == "")
                 return C4;
-            if (buttons[21].Content == "")
+            if (buttons[20].Content == "")
                 return D3;
-            if (buttons[22].Content == "")
+            if (buttons[21].Content == "")
                 return D4;
 
             return null;
@@ -3859,13 +3861,14 @@ namespace WpfApplication3
                 return A1;
             if (buttons[5].Content == "")
                 return A6;
-            if (buttons[31].Content == "")
+            if (buttons[30].Content == "")
                 return F1;
             if (buttons[35].Content == "")
                 return F6;
 
             return null;
         }
+
         /*
         private Button Open()
         {
@@ -3891,6 +3894,30 @@ namespace WpfApplication3
 
             displayPlayerStats.Visibility = Visibility.Hidden;
 
+        }
+
+        private void playAgainButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            moveCounter = 0;
+
+            for (int i = 0; i <36; i++)
+            {
+                buttons[i].Content = "";
+            }
+
+            score1Label.Content = 0;
+            score2Label.Content = 0;
+
+           
+            player1.resetScore();
+            player2.resetScore();
+
+            setAIArrays();
+            setButtonsArray();
+            setProperties();
+
+            displayPlayerStats.Visibility = Visibility.Hidden;
+            
         }
     }
 

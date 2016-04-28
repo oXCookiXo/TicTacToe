@@ -73,5 +73,10 @@ namespace WpfApplication3
         {
             return score;
         }
+        public void resetScore()
+        {
+            score = 0;
+        }   
+    
     }
 }
